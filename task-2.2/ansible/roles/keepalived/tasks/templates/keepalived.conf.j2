@@ -1,0 +1,21 @@
+! Configuration File for keepalived
+global_defs {
+   router_id uMASTER
+}
+
+vrrp_instance VI_1 {
+    state {{ state }}
+    interface eth0
+    virtual_router_id 230
+    priority 101
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass UG36PQWY
+    }
+
+
+   virtual_ipaddress {
+       10.8.4.250/32 dev eth0 label eth0:0
+    }
+}

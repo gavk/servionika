@@ -1,0 +1,14 @@
+---
+- name: install keepalived
+  ansible.builtin.apt:
+    name: keepalived
+    state: present
+- name: make keepalived config
+  ansible.builtin.template:
+    dest: /etc/keepalived/keepalived.conf
+    src: keepalived.conf.j2
+- name: restart keepalived
+  ansible.builtin.systemd:
+    name: keepalived
+    state: restarted
+...

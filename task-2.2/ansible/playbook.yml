@@ -1,0 +1,9 @@
+---
+- hosts: web
+  roles:
+    - backend
+- hosts: loadbalancer
+  roles:
+    - balancer
+    - keepalived
+...

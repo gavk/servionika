@@ -1,0 +1,14 @@
+---
+- name: install nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+- name: make nginx config
+  ansible.builtin.template:
+    dest: /etc/nginx/sites-available/default
+    src: default.j2
+- name: restart nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+...
